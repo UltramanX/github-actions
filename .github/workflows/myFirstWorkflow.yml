@@ -28,6 +28,7 @@ jobs:
 
    job3:
     name: My third job
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: Job w/single dependency
@@ -35,6 +36,7 @@ jobs:
 
    job4:
     name: My fourth job
+    needs: [job1, job2, job3]
     runs-on: ubuntu-latest
     steps:
       - name: Job w/multi dependencies
