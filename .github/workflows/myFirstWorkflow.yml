@@ -11,7 +11,18 @@ jobs:
         run: echo "Hi this tis my first GH wf"
       - name: Checking OS release for GH hosted runner
         run: cat /etc/os-release
+      - name: Calling sleep
+        run: sleep 15
         
-  # job2:
-  #   name: My second job
-  #   runs-on: ubuntu-latest
+  job2:
+    name: My second job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking hostname for Runner
+        run: hostname
+      - name: Running multiple cmds
+        run: |
+          echo "Hi from JOB2"
+          echo "current time is 'date'"
+          sleep 20
+    
