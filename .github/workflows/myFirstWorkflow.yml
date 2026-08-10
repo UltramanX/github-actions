@@ -1,0 +1,3 @@
+name: my-first-workflow
+# will run when a push is made to any branch in the workflow's repository
+on: push
