@@ -2,8 +2,7 @@ name: my-first-workflow
 # will run when a push is made to any branch in the workflow's repository
 on:
   schedule:
-    - cron: "*/5 * * * *"
-  workflow_dispatch: 
+    - cron: "5 * * * *"
 
 jobs:
   job1:
