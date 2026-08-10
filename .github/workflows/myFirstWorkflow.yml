@@ -1,3 +1,17 @@
 name: my-first-workflow
 # will run when a push is made to any branch in the workflow's repository
 on: push
+
+jobs:
+  job1:
+    name: My first job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running a single cmd in job1
+        run: echo "Hi this tis my first GH wf"
+      - name: Checking OS release for GH hosted runner
+        run: cat /etc/os-release
+        
+  # job2:
+  #   name: My second job
+  #   runs-on: ubuntu-latest
