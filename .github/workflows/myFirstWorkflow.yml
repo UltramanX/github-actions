@@ -12,7 +12,7 @@ jobs:
       - name: Checking OS release for GH hosted runner
         run: cat /etc/os-release
       - name: Calling sleep
-        run: sleep 15
+        run: sleep 20
         
   job2:
     name: My second job
@@ -25,4 +25,20 @@ jobs:
           echo "Hi from JOB2"
           echo "current time is 'date'"
           sleep 20
+
+   job3:
+    name: My third job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job w/single dependency
+        run: sleep 10
+
+   job4:
+    name: My fourth job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job w/multi dependencies
+        run: sleep 10
+
+        
     
