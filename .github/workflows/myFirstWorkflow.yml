@@ -26,7 +26,7 @@ jobs:
           echo "current time is 'date'"
           sleep 20
 
-   job3:
+  job3:
     name: My third job
     needs: job1
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
       - name: Job w/single dependency
         run: sleep 10
 
-   job4:
+  job4:
     name: My fourth job
     needs: [job1, job2, job3]
     runs-on: ubuntu-latest
