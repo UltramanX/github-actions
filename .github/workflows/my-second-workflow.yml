@@ -1,0 +1,21 @@
+name: my-second-workflow
+on:
+  push:
+
+jobs:
+  job1:
+    name: My first job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step-1 - commands
+        run: |
+          pwd
+          ls -ltr
+          hostname
+      - name: Step-2 - Checkout
+        uses: actions/checkout@v6.1.0
+      - name: Step-3 - cmds
+        run: |
+          pwd
+          ls -ltr
+          hostname
