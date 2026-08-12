@@ -67,7 +67,7 @@ jobs:
           pwd
           ls -ltr
       - name: Download single file artifact
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@v7
         with: 
           name: single_file.zip
       - name: Checking current dir - post download
