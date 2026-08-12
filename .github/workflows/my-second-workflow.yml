@@ -21,14 +21,39 @@ jobs:
       - name: Step-3 - create a file
         run: |
           echo 'pwd' >> myartifact.txt
-          ls -ltr
-          hostname
+          mkdir artifacts
+          echo 'ls -ltr' >> artifacts/list.txt
+          echo 'hostname' >> artifacts/hostname.txt
 
       - name: Step-4 - upload a file
         uses: actions/upload-artifact@v7.0.1
         with:
     # Artifact name. If the `archive` input is `false`, the name of the file uploaded will be the artifact name.
-          name: sing_file
+          name: single_file
     # A file, directory or wildcard pattern that describes what to upload.
           path: ./myartifact.txt
+
+      - name: Upload from dir
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: dir_artifacts
+          path: artifacts/
+
+      - name: Upload from multiple dirs
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: multiple_dirs
+          path: |
+            ./myartifact.txt
+            artifacts/
+
+      - name: Upload from multiple dirs w/exclusions
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: multiple_dirs_with_exclusions
+          path: |
+            ./myartifact.txt
+            artifacts/
+            !**/hostname.txt
+      
       
