@@ -76,7 +76,7 @@ jobs:
           pwd
           ls -ltr
 
-  job3:
+  job3: # download directory
     name: JOB3
     needs: job1
     runs-on: ubuntu-latest
@@ -93,5 +93,35 @@ jobs:
         run: |
           pwd
           ls -ltr
-      
+
+  job4: # download in custom location
+    name: JOB4
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create custom folder for download
+        run: |
+         mkdir -p single_file_dir
+         mkdir -p download_dir
+      - name: Checking current dir - pre download
+        run: |
+          pwd
+          ls -ltr
+      - name: Download single file artifact
+        uses: actions/download-artifact@v7
+        with: 
+          name: single_file
+          path: single_file_dir
+      - name: Download dir
+        uses: actions/download-artifact@v7
+        with: 
+          name: dir_artifacts
+          path: download_dir
+      - name: Checking current dir - post download
+        run: |
+          pwd
+          echo "CHECKING SINGLE FILE DIR"
+          ls -ltr single_file_dir
+          echo "CHECKING DIR ARTIFACTS"
+          ls -ltr download_dir
       
