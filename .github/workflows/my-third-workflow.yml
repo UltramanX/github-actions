@@ -1,4 +1,4 @@
-name: my-second-workflow
+name: my-third-workflow
 on:
   push:
     branches: 
