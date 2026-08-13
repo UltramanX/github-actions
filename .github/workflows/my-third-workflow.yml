@@ -4,7 +4,7 @@ on:
     branches: 
       - dev
       - 'feature-*'
-      - main
+      
 
 jobs:
   job1:
