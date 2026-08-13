@@ -2,8 +2,6 @@ name: my-third-workflow
 on:
   push:
     branches: 
-      - dev
-      - 'feature-*'
       - main
   pull_request:
     branches:
@@ -85,6 +83,6 @@ jobs:
           ls -ltr
 
       - name: Step for PR Demo
-        run: exit 1
+        run: exit 0
 
   
