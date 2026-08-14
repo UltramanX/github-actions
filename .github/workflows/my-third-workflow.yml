@@ -1,9 +1,12 @@
-name: my-second-workflow
+name: my-third-workflow
 on:
   push:
     branches: 
-      - dev
-      - 'feature-*'
+      - main
+  pull_request:
+    branches:
+      - main
+      
 
 jobs:
   job1:
@@ -78,5 +81,8 @@ jobs:
         run: |
           pwd
           ls -ltr
+
+      - name: Step for PR Demo
+        run: exit 0
 
   
