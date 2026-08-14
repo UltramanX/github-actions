@@ -73,7 +73,7 @@ jobs:
           echo "[INFO] Current job ID is ${{ job.check_run_id }}."
     
   staging: # new job4       
-    name: STAGE DEPLOYMENT
+    name: STAGE DEPLOYMENTs
     needs: job3
     # Only run this job when a commit is pushed/merged to the 'dev' branch
     if: github.ref_name == 'dev' && github.event_name == 'push'
