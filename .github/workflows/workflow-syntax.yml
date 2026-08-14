@@ -57,7 +57,7 @@ jobs:
 
       - name: Referring Repo secrets
         run: |
-          c app password is ${{ secrets.ADD_TOOL_PASSW }}"
+          echo "[INFO] app password is ${{ secrets.ADD_TOOL_PASSW }}"
 
   job3:
     name: JOB3
