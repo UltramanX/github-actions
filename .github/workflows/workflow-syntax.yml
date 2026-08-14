@@ -74,6 +74,7 @@ jobs:
     
   staging: # new job4       
     name: STAGE DEPLOYMENT
+    needs: job3
     # Only run this job when a commit is pushed/merged to the 'dev' branch
     if: github.ref_name == 'dev' && github.event_name == 'push'
     runs-on: ubuntu-latest
