@@ -73,7 +73,7 @@ jobs:
   staging: # new job4       
     name: STAGE DEPLOYMENT
     # Only run this job when a commit is pushed/merged to the 'dev' branch
-    if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+    #if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Referring env vars
