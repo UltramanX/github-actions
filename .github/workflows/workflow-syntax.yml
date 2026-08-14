@@ -85,17 +85,17 @@ jobs:
     # Only deploys to PRODUCTION when code is actually pushed/merged into the 'main' branch
     if: github.head_ref == '1/merge' && github.head_ref == 'refs/pull/1/merge'
 
-  production: # new job5      
-    name: PROD DEPLOYMENT
-    runs-on: ubuntu-latest
-    steps:
-      - name: Referring env vars
-        run: echo "[INFO] Running deployment on  ${{ vars.HOST }} using ${{ vars.USER }}."
-      - name: Referrring env secrets
-        run: echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.APP_SECRET_NAME_PROD }}."
-    environment:
-      name: PRODUCTION
-    # Only deploys to PRODUCTION when code is actually pushed/merged into the 'main' branch
-    if: github.head_ref == 'refs/heads/main'
+  # production: # new job5      
+  #   name: PROD DEPLOYMENT
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Referring env vars
+  #       run: echo "[INFO] Running deployment on  ${{ vars.HOST }} using ${{ vars.USER }}."
+  #     - name: Referrring env secrets
+  #       run: echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.APP_SECRET_NAME_PROD }}."
+  #   environment:
+  #     name: PRODUCTION
+  #   # Only deploys to PRODUCTION when code is actually pushed/merged into the 'main' branch
+  #   if: github.head_ref == 'refs/heads/main'
 
       
