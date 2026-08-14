@@ -63,11 +63,33 @@ jobs:
     name: JOB3
     runs-on: ubuntu-latest
     steps:
-    - name: Reffering context or in-built vars
-      run: |
-        echo "[INFO] Triggered by ${{ github.event_name }}."
-        echo "[INFO] New changes are added by ${{ github.actor }} in ${{ github.ref_name }} branch."
-        echo "[INFO] Current step is running on ${{ runner.os }}."
-        echo "[INFO] Current job ID is ${{ job.check_run_id }}."
+      - name: Reffering context or in-built vars
+        run: |
+          echo "[INFO] Triggered by ${{ github.event_name }}."
+          echo "[INFO] New changes are added by ${{ github.actor }} in ${{ github.ref_name }} branch."
+          echo "[INFO] Current step is running on ${{ runner.os }}."
+          echo "[INFO] Current job ID is ${{ job.check_run_id }}."
     
-          
+  staging: # new job4       
+    name: STAGE DEPLOYMENT
+    runs-on: ubuntu-latest
+    steps:
+      - name: Referring env vars
+        run: echo "[INFO] Running deployment on  ${{ vars.HOST }} using ${{ vars.USER }}."
+      - name: Referrring env secrets
+        run: echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.APP_SECRET_NAME }}."
+    environment:
+      name: STAGING
+
+  production: # new job5      
+    name: PROD DEPLOYMENT
+    runs-on: ubuntu-latest
+    steps:
+      - name: Referring env vars
+        run: echo "[INFO] Running deployment on  ${{ vars.HOST }} using ${{ vars.USER }}."
+      - name: Referrring env secrets
+        run: echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.APP_SECRET_NAME_PROD }}."
+    environment:
+      name: PRODUCTION
+
+      
