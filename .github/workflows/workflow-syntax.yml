@@ -74,9 +74,6 @@ jobs:
     
   staging: # new job4       
     name: STAGE DEPLOYMENT
-    
-    # Only run this job when a commit is pushed/merged to the 'dev' branch
-    #if: github.ref_name == 'dev' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Referring env vars
@@ -85,12 +82,11 @@ jobs:
         run: echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.APP_SECRET_NAME }}."
     environment:
       name: STAGING
-    if: github.ref_name == 'refs/heads/dev'
+    # Only deploys to PRODUCTION when code is actually pushed/merged into the 'main' branch
+    if: github.head_ref == 'refs/heads/dev'
 
   production: # new job5      
     name: PROD DEPLOYMENT
-    # Only deploys to PRODUCTION when code is actually pushed/merged into the 'main' branch
-    #if: github.ref_name == 'main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Referring env vars
@@ -99,6 +95,7 @@ jobs:
         run: echo "[INFO] Password for ${{ vars.USER }} is ${{ secrets.APP_SECRET_NAME_PROD }}."
     environment:
       name: PRODUCTION
-    if: github.ref_name == 'refs/heads/main'
+    # Only deploys to PRODUCTION when code is actually pushed/merged into the 'main' branch
+    if: github.head_ref == 'refs/heads/main'
 
       
