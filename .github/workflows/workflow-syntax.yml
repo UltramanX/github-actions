@@ -83,7 +83,7 @@ jobs:
     environment:
       name: STAGING
     # Only deploys to PRODUCTION when code is actually pushed/merged into the 'main' branch
-    if: github.head_ref == 'dev' && github.head_ref == 'refs/pull/1/merge'
+    if: github.head_ref == 'dev' && github.head_ref == 'refs/pull/1/merge' && github.head_ref == '1/merge'
 
   production: # new job5      
     name: PROD DEPLOYMENT
